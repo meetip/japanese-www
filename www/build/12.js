@@ -45,13 +45,14 @@ var ChapterPageModule = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChapterPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_toPromise__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_toPromise__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_toPromise__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_app_config__ = __webpack_require__(106);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -68,6 +69,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the ChapterPage page.
  *
@@ -79,7 +81,7 @@ var ChapterPage = /** @class */ (function () {
         this.navCtrl = navCtrl;
         this.http = http;
         this.navParams = navParams;
-        this.url = "http://159.65.142.130/api/getLesson/";
+        this.url = __WEBPACK_IMPORTED_MODULE_6__app_app_config__["b" /* SERVER */] + "/api/getLesson/";
         this.state = '1';
         this.chapterone = [
             { "color": "pink",
@@ -278,7 +280,7 @@ var ChapterPage = /** @class */ (function () {
     };
     ChapterPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-chapter',template:/*ion-inline-start:"D:\yui\workspace\Jap_Android\src\pages\chapter\chapter.html"*/'<ion-content>\n\n  <ion-grid class="nopadding fixheight">\n\n    <ion-row>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n  <ion-col col-12 col-xl-6>  \n\n  <ion-grid class="gray"> \n\n    <ion-row>\n\n \n\n    <ion-col col-2 >\n\n        <img class="returnlesson" (click)="openlesson()" src="assets/imgs/return.PNG">\n\n    </ion-col>\n\n    <ion-col col-8>\n\n        <div class="stateCh">Lesson</div>\n\n    </ion-col>\n\n    <ion-col col-2>\n\n        <ion-icon class="menuicon" ios="ios-menu" md="md-menu" (click)="openmenu()" ></ion-icon>\n\n    </ion-col>\n\n  \n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <ion-row *ngFor="let lesson of lesson">\n\n    <ion-col col-4  *ngFor="let lesson1 of lesson.chapter">\n\n      <div class="{{lesson.color}} textlesson" (click)="openchapter(lesson1,lesson.color)">\n\n        {{lesson1}}        \n\n      </div>\n\n    </ion-col>\n\n  </ion-row>\n\n      </ion-col>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n    </ion-row>\n\n</ion-grid>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\yui\workspace\Jap_Android\src\pages\chapter\chapter.html"*/,
+            selector: 'page-chapter',template:/*ion-inline-start:"D:\yui\workspace\JapanGame\JapanGame\src\pages\chapter\chapter.html"*/'<ion-content>\n\n  <ion-grid class="nopadding fixheight">\n\n    <ion-row>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n  <ion-col col-12 col-xl-6>  \n\n  <ion-grid class="gray"> \n\n    <ion-row>\n\n \n\n    <ion-col col-2 >\n\n        <img class="returnlesson" (click)="openlesson()" src="assets/imgs/return.PNG">\n\n    </ion-col>\n\n    <ion-col col-8>\n\n        <div class="stateCh">Lesson</div>\n\n    </ion-col>\n\n    <ion-col col-2>\n\n        <ion-icon class="menuicon" ios="ios-menu" md="md-menu" (click)="openmenu()" ></ion-icon>\n\n    </ion-col>\n\n  \n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <ion-row *ngFor="let lesson of lesson">\n\n    <ion-col col-4  *ngFor="let lesson1 of lesson.chapter">\n\n      <div class="{{lesson.color}} textlesson" (click)="openchapter(lesson1,lesson.color)">\n\n        {{lesson1}}        \n\n      </div>\n\n    </ion-col>\n\n  </ion-row>\n\n      </ion-col>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n    </ion-row>\n\n</ion-grid>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\yui\workspace\JapanGame\JapanGame\src\pages\chapter\chapter.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])

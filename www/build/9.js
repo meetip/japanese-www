@@ -1,6 +1,6 @@
 webpackJsonp([9],{
 
-/***/ 292:
+/***/ 293:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DictionaryPageModule", function() { return DictionaryPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dictionary__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dictionary__ = __webpack_require__(307);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var DictionaryPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 306:
+/***/ 307:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -75,7 +75,7 @@ var DictionaryPage = /** @class */ (function () {
     };
     DictionaryPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-dictionary',template:/*ion-inline-start:"D:\yui\workspace\Jap_Android\src\pages\dictionary\dictionary.html"*/'<ion-content class="darkgreen">\n\n <ion-grid class="nopadding fixheight">\n\n    <ion-row>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n  <ion-col col-12 col-xl-6>\n\n  <ion-grid class="nopadding fixheight"> \n\n    <ion-row class="gray">\n\n      <ion-col>\n\n        <img class="return" (click) = "openMenu()" src="assets/imgs/return.PNG">\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n  <div class="cicleDic">\n\n    <img class="book" src="assets/imgs/book.PNG">\n\n  </div>\n\n  <p class="dic">DICTIONARY</p>\n\n\n\n  <ion-item class="darkgreen textdic">\n\n    <ion-label>\n\n    <ion-icon class="searchicon" ios="ios-search" md="md-search"></ion-icon>\n\n    </ion-label>\n\n     <ion-input class="inputtext" type="text"></ion-input> \n\n  </ion-item>\n\n    <button ion-button class="DicB">Search</button> \n\n      </ion-col>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\yui\workspace\Jap_Android\src\pages\dictionary\dictionary.html"*/,
+            selector: 'page-dictionary',template:/*ion-inline-start:"D:\yui\workspace\JapanGame\JapanGame\src\pages\dictionary\dictionary.html"*/'<ion-content class="darkgreen">\n\n <ion-grid class="nopadding fixheight">\n\n    <ion-row>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n  <ion-col col-12 col-xl-6>\n\n  <ion-grid class="nopadding fixheight"> \n\n    <ion-row class="gray">\n\n      <ion-col>\n\n        <img class="return" (click) = "openMenu()" src="assets/imgs/return.PNG">\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n  <div class="cicleDic">\n\n    <img class="book" src="assets/imgs/book.PNG">\n\n  </div>\n\n  <p class="dic">DICTIONARY</p>\n\n\n\n  <ion-item class="darkgreen textdic">\n\n    <ion-label>\n\n    <ion-icon class="searchicon" ios="ios-search" md="md-search"></ion-icon>\n\n    </ion-label>\n\n     <ion-input class="inputtext" type="text"></ion-input> \n\n  </ion-item>\n\n    <button ion-button class="DicB">Search</button> \n\n      </ion-col>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\yui\workspace\JapanGame\JapanGame\src\pages\dictionary\dictionary.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
     ], DictionaryPage);

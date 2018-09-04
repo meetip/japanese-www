@@ -1,6 +1,6 @@
 webpackJsonp([6],{
 
-/***/ 295:
+/***/ 297:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginGuestPageModule", function() { return LoginGuestPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_guest__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_guest__ = __webpack_require__(310);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var LoginGuestPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 308:
+/***/ 310:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -166,7 +166,7 @@ var LoginGuestPage = /** @class */ (function () {
     };
     LoginGuestPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login-guest',template:/*ion-inline-start:"D:\yui\workspace\Jap_Android\src\pages\login-guest\login-guest.html"*/'<ion-content>\n\n  <ion-grid class="nopadding fixheight">\n\n    <ion-row>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n      <ion-col col-12 col-xl-6>\n\n\n\n        <img class="loginlogoguest" src="assets/imgs/student.png">\n\n\n\n        <!-- <ion-row class="inputquest">  -->\n\n        <!-- <ion-col col-3> -->\n\n        <!-- <ion-label class="textname">Name</ion-label> -->\n\n        <form novalidate class="formtext" [formGroup]="name" (ngSubmit)="openMenu()">\n\n          <ion-item class="quest">\n\n            <ion-label class="textname" fixed>name </ion-label>\n\n            <ion-input class="textquest" type="text" formControlName="title"></ion-input>\n\n          </ion-item>\n\n\n\n          <ion-item class="error" *ngIf="(name.get(\'title\').hasError(\'required\')||name.get(\'title\').hasError(\'pattern\')) && name.get(\'title\').touched">\n\n            <div *ngIf="name.get(\'title\').hasError(\'required\') && name.get(\'title\').touched">\n\n              Please input your name.\n\n            </div>\n\n            <div *ngIf="name.get(\'title\').hasError(\'pattern\') && name.get(\'title\').touched">\n\n              Please input character(a-z) at least 1 character.\n\n            </div>\n\n          </ion-item>\n\n          <div class="betweenB"></div>\n\n          <button ion-button class="loginB" [disabled]="name.invalid">OK</button>\n\n        </form>\n\n\n\n        <!-- </ion-col>  \n\n     <ion-col col-9>\n\n      <ion-input class="textquest" type="text"></ion-input>\n\n    </ion-col>\n\n  </ion-row>      -->\n\n\n\n        <!-- <button ion-button class="loginB" (click) = "openMenu()">OK</button>  -->\n\n      </ion-col>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\yui\workspace\Jap_Android\src\pages\login-guest\login-guest.html"*/,
+            selector: 'page-login-guest',template:/*ion-inline-start:"D:\yui\workspace\JapanGame\JapanGame\src\pages\login-guest\login-guest.html"*/'<ion-content>\n\n  <ion-grid class="nopadding fixheight">\n\n    <ion-row>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n      <ion-col col-12 col-xl-6>\n\n\n\n        <img class="loginlogoguest" src="assets/imgs/student.png">\n\n\n\n        <!-- <ion-row class="inputquest">  -->\n\n        <!-- <ion-col col-3> -->\n\n        <!-- <ion-label class="textname">Name</ion-label> -->\n\n        <form novalidate class="formtext" [formGroup]="name" (ngSubmit)="openMenu()">\n\n          <ion-item class="quest">\n\n            <ion-label class="textname" fixed>name </ion-label>\n\n            <ion-input class="textquest" type="text" formControlName="title"></ion-input>\n\n          </ion-item>\n\n\n\n          <ion-item class="error" *ngIf="(name.get(\'title\').hasError(\'required\')||name.get(\'title\').hasError(\'pattern\')) && name.get(\'title\').touched">\n\n            <div *ngIf="name.get(\'title\').hasError(\'required\') && name.get(\'title\').touched">\n\n              Please input your name.\n\n            </div>\n\n            <div *ngIf="name.get(\'title\').hasError(\'pattern\') && name.get(\'title\').touched">\n\n              Please input character(a-z) at least 1 character.\n\n            </div>\n\n          </ion-item>\n\n          <div class="betweenB"></div>\n\n          <button ion-button class="loginB" [disabled]="name.invalid">OK</button>\n\n        </form>\n\n\n\n        <!-- </ion-col>  \n\n     <ion-col col-9>\n\n      <ion-input class="textquest" type="text"></ion-input>\n\n    </ion-col>\n\n  </ion-row>      -->\n\n\n\n        <!-- <button ion-button class="loginB" (click) = "openMenu()">OK</button>  -->\n\n      </ion-col>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\yui\workspace\JapanGame\JapanGame\src\pages\login-guest\login-guest.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */],

@@ -1,6 +1,6 @@
 webpackJsonp([8],{
 
-/***/ 294:
+/***/ 295:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EndsubonePageModule", function() { return EndsubonePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__endsubone__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__endsubone__ = __webpack_require__(308);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,15 +38,15 @@ var EndsubonePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 307:
+/***/ 308:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EndsubonePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_call_api_call_api__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(33);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -67,14 +67,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var EndsubonePage = /** @class */ (function () {
-    function EndsubonePage(navCtrl, storage, navParams, http) {
+    function EndsubonePage(navCtrl, storage, navParams, CallApiProvider) {
         this.navCtrl = navCtrl;
         this.storage = storage;
         this.navParams = navParams;
-        this.http = http;
+        this.CallApiProvider = CallApiProvider;
         this.textwin = " " + "がんばりましょう。";
-        this.urlStatic = 'http://159.65.142.130/api/setVocabMistake/';
-        this.urlScore = 'http://159.65.142.130/api/updateScoreStudent/';
         this.data = navParams.get('data');
         this.state = navParams.get('state');
         this.substate = navParams.get('substate');
@@ -94,7 +92,7 @@ var EndsubonePage = /** @class */ (function () {
         this.storage.get('id').then(function (id) {
             _this.idCode = id;
         });
-        if (this.lastStage != undefined) {
+        if (typeof this.lastStage != 'undefined') {
             if (this.lastStage <= this.state) {
                 console.log("GGGG");
                 this.storage.get('stageTable').then(function (stageTable) {
@@ -115,8 +113,8 @@ var EndsubonePage = /** @class */ (function () {
         this.storage.get('scoreTable').then(function (scoreTable) {
             _this.scoreTable = scoreTable;
             if (scoreTable != null) {
-                if (_this.score !== undefined) {
-                    for (var i = 0; i < scoreTable.length; i++) {
+                if (typeof _this.score !== 'undefined') {
+                    var _loop_1 = function (i) {
                         if (scoreTable[i].id == _this.idCode) {
                             if (scoreTable[i].stage == _this.state) {
                                 if (scoreTable[i].substage == (_this.substate - 1)) {
@@ -126,13 +124,15 @@ var EndsubonePage = /** @class */ (function () {
                                         _this.storage.set('scoreTable', _this.scoreTable);
                                         //saveScoreIndatabase
                                         if (_this.typeForSave == "student") {
-                                            var scoreForSave = [{
+                                            var scoreForSave_1 = [{
                                                     studentID: _this.idCode,
                                                     stage: _this.state + "-" + (_this.substate - 1),
                                                     score: _this.score
                                                 }];
-                                            _this.getCallScoreSave(scoreForSave);
-                                            console.log("saveScoreInDatabase: ", scoreForSave);
+                                            callback = function (result) {
+                                                console.log("saveScoreInDatabase: ", scoreForSave_1);
+                                            };
+                                            _this.CallApiProvider.getCallScoreSave(callback, scoreForSave_1);
                                         }
                                     }
                                     else {
@@ -141,17 +141,23 @@ var EndsubonePage = /** @class */ (function () {
                                 }
                             }
                         }
+                    };
+                    var callback;
+                    for (var i = 0; i < scoreTable.length; i++) {
+                        _loop_1(i);
                     }
                     if (checkscore == 0) {
                         //saveScoreIndatabase
                         if (_this.typeForSave == "student") {
-                            var scoreForSave = [{
+                            var scoreForSave_2 = [{
                                     studentID: _this.idCode,
                                     stage: _this.state + "-" + (_this.substate - 1),
                                     score: _this.score
                                 }];
-                            _this.getCallScoreSave(scoreForSave);
-                            console.log("saveScoreInDatabase: ", scoreForSave);
+                            var callback = function (result) {
+                                console.log("saveScoreInDatabase: ", scoreForSave_2);
+                            };
+                            _this.CallApiProvider.getCallScoreSave(callback, scoreForSave_2);
                         }
                         _this.scoreTable.push({
                             id: _this.idCode,
@@ -165,13 +171,15 @@ var EndsubonePage = /** @class */ (function () {
             }
         });
         //static save    
-        if (this.staticForSave !== undefined && this.staticForSave.length > 0) {
-            var staticVocab = [{
+        if (typeof this.staticForSave !== 'undefined' && this.staticForSave.length > 0) {
+            var staticVocab_1 = [{
                     "type": this.typeForSave,
                     "mistake": this.staticForSave
                 }];
-            this.getCallStaticSave(staticVocab);
-            console.log("saveStaticInDatabase: ", staticVocab);
+            var callback = function (result) {
+                console.log("saveStaticInDatabase: ", staticVocab_1);
+            };
+            this.CallApiProvider.getCallStaticSave(callback, staticVocab_1);
         }
         if (this.substate < 4) {
             this.foot = "next " + this.state + "-" + this.substate;
@@ -192,59 +200,9 @@ var EndsubonePage = /** @class */ (function () {
     EndsubonePage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad EndsubonePage');
     };
-    EndsubonePage.prototype.getCallStaticSave = function (staticVocab) {
-        var _this = this;
-        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json'
-        });
-        var options = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* RequestOptions */]({ headers: headers });
-        var postParams = {
-            params: {
-                content: staticVocab,
-            }
-        };
-        return new Promise(function (resolve, reject) {
-            _this.http.post(_this.urlStatic, postParams, options)
-                .toPromise()
-                .then(function (response) {
-                console.log('API Response : ', response.json());
-                resolve(response.json());
-            })
-                .catch(function (error) {
-                console.error('API Error : ', error.status);
-                console.error('API Error : ', JSON.stringify(error));
-                _this.getCallStaticSave(staticVocab);
-                reject(error.json());
-            });
-        });
-    };
-    EndsubonePage.prototype.getCallScoreSave = function (scoreForSave) {
-        var _this = this;
-        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json'
-        });
-        var options = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* RequestOptions */]({ headers: headers });
-        var postParams = {
-            params: {
-                content: scoreForSave,
-            }
-        };
-        return new Promise(function (resolve, reject) {
-            _this.http.post(_this.urlScore, postParams, options)
-                .toPromise()
-                .then(function (response) {
-                console.log('API Response : ', response.json());
-                resolve(response.json());
-            })
-                .catch(function (error) {
-                console.error('API Error : ', error.status);
-                console.error('API Error : ', JSON.stringify(error));
-                _this.getCallStaticSave(scoreForSave);
-                reject(error.json());
-            });
-        });
-    };
     EndsubonePage.prototype.dismiss = function () {
         if (this.substate == 4) {
-            if (this.lastStage != undefined) {
+            if (typeof this.lastStage != 'undefined') {
                 this.navCtrl.setRoot('EndonePage', {
                     // totalscore: this.totalscore,
                     state: this.state,
@@ -268,11 +226,10 @@ var EndsubonePage = /** @class */ (function () {
         this.navCtrl.setRoot('MenuPage');
     };
     EndsubonePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-endsubone',template:/*ion-inline-start:"D:\yui\workspace\Jap_Android\src\pages\endsubone\endsubone.html"*/'<ion-content class="orange">\n\n<ion-grid class="nopadding fixheight">\n\n    <ion-row>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n  <ion-col col-12 col-xl-6>\n\n    <ion-grid class="nopadding fixheight"> \n\n    <ion-grid class="gray"> \n\n    <ion-row>\n\n \n\n    <ion-col col-2>\n\n        <img class="returnend" (click)="openmap()" src="assets/imgs/map.png">\n\n    </ion-col>\n\n    <ion-col col-8>\n\n        <div class="stateCh">STAGE {{state}} ({{state}}-1-->{{state}}-3)</div>\n\n    </ion-col>\n\n    <ion-col col-2>\n\n         <ion-icon class="menuicon" ios="ios-menu" md="md-menu"></ion-icon>\n\n    </ion-col>\n\n  \n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <ion-grid>\n\n    <div class="textconS">Stage {{state}}-{{substate-1}} CLEAR!</div>\n\n    <p class="textcon"> {{textwin}}</p>\n\n    <div class="border"></div>\n\n    <p class="textscore">{{score}} / 20</p> \n\n    <ion-icon ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle" class="next" (click)="dismiss()"></ion-icon>\n\n    <p class="foot">{{foot}}</p>\n\n\n\n  </ion-grid>\n\n    </ion-grid>\n\n	      </ion-col>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\yui\workspace\Jap_Android\src\pages\endsubone\endsubone.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+            selector: 'page-endsubone',template:/*ion-inline-start:"D:\yui\workspace\JapanGame\JapanGame\src\pages\endsubone\endsubone.html"*/'<ion-content class="orange">\n\n<ion-grid class="nopadding fixheight">\n\n    <ion-row>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n  <ion-col col-12 col-xl-6>\n\n    <ion-grid class="nopadding fixheight"> \n\n    <ion-grid class="gray"> \n\n    <ion-row>\n\n \n\n    <ion-col col-2>\n\n        <img class="returnend" (click)="openmap()" src="assets/imgs/map.png">\n\n    </ion-col>\n\n    <ion-col col-8>\n\n        <div class="stateCh">STAGE {{state}} ({{state}}-1-->{{state}}-3)</div>\n\n    </ion-col>\n\n    <ion-col col-2>\n\n         <ion-icon class="menuicon" (click)="openmenu()" ios="ios-menu" md="md-menu"></ion-icon>\n\n    </ion-col>\n\n  \n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <ion-grid>\n\n    <div class="textconS">Stage {{state}}-{{substate-1}} CLEAR!</div>\n\n    <p class="textcon"> {{textwin}}</p>\n\n    <div class="border"></div>\n\n    <p class="textscore">{{score}} / 20</p> \n\n    <ion-icon ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle" class="next" (click)="dismiss()"></ion-icon>\n\n    <p class="foot">{{foot}}</p>\n\n\n\n  </ion-grid>\n\n    </ion-grid>\n\n	      </ion-col>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\yui\workspace\JapanGame\JapanGame\src\pages\endsubone\endsubone.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__providers_call_api_call_api__["a" /* CallApiProvider */]])
     ], EndsubonePage);
     return EndsubonePage;
 }());

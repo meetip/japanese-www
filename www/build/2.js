@@ -1,6 +1,6 @@
 webpackJsonp([2],{
 
-/***/ 299:
+/***/ 302:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PlaygamePageModule", function() { return PlaygamePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__playgame__ = __webpack_require__(312);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__playgame__ = __webpack_require__(315);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,21 +38,22 @@ var PlaygamePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 312:
+/***/ 315:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PlaygamePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(104);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_app_config__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_toPromise__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_toPromise__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -62,6 +63,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -90,7 +92,7 @@ var PlaygamePage = /** @class */ (function () {
         this.totalscore = 0; //score in state
         this.life = 5;
         this.substate = 1; // substate in page for change question
-        this.url = 'http://159.65.142.130/api/getQuestion/';
+        this.url = __WEBPACK_IMPORTED_MODULE_4__app_app_config__["b" /* SERVER */] + '/api/getQuestion/';
         this.state = 1; // for change color
         this.quesqic = "assets/imgs/question/pinkques.PNG";
         this.choicecolor = [
@@ -226,19 +228,16 @@ var PlaygamePage = /** @class */ (function () {
                         }
                     }
                 }
-                console.log("staticquestion = " + _this.staticquestion);
             }
         });
         this.storage.get('vocabTable').then(function (vocabTable) {
             if (vocabTable != null) {
                 _this.vocabstatic = vocabTable;
-                console.log(_this.vocabstatic);
             }
         });
     };
     PlaygamePage.prototype.initTimer = function () {
         this.timeInSeconds = this.timestate[this.timeindex];
-        console.log(this.timeInSeconds);
         this.timer = {
             seconds: this.timeInSeconds,
             runTimer: false,
@@ -253,7 +252,7 @@ var PlaygamePage = /** @class */ (function () {
         setTimeout(function () {
             //   console.log("this.timer.displayTime : "+ this.timer.secondsRemaining);
             if (!_this.timer.runTimer) {
-                console.log("OUTTTTTTT");
+                //console.log("OUTTTTTTT");
                 return;
             }
             _this.timer.secondsRemaining--;
@@ -272,9 +271,6 @@ var PlaygamePage = /** @class */ (function () {
                 _this.presentToast();
             }
         }, 1000);
-    };
-    PlaygamePage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad PlaygamePage');
     };
     PlaygamePage.prototype.getQuestion = function () {
         this.getCall();
@@ -296,10 +292,8 @@ var PlaygamePage = /** @class */ (function () {
             _this.http.get(_this.url + _this.statepage, options)
                 .map(function (res) { return res.json(); })
                 .subscribe(function (data) {
-                console.log(data);
                 _this.question = data;
                 _this.saveVocab();
-                console.log(_this.question.question[_this.indexques].stem.romanji);
                 _this.changeColor();
                 _this.setQuestion();
                 _this.initTimer();
@@ -308,7 +302,9 @@ var PlaygamePage = /** @class */ (function () {
             }, function (error) {
                 console.log('API Error : ', error.status);
                 console.log('API Error : ', JSON.stringify(error));
-                _this.getCall();
+                // setTimeout(() => {
+                //     this.getCall();                        
+                // }, 2000);
                 reject(error.json());
             });
         });
@@ -408,8 +404,6 @@ var PlaygamePage = /** @class */ (function () {
                 // if(this.indexstatic < this.staticquestion.length){
                 this.checkQueStatic = true;
                 var ranstaic = Math.floor(Math.random() * this.staticquestion.length);
-                console.log("this.staticquestion.length: " + this.staticquestion.length);
-                console.log("ranstaic: " + ranstaic);
                 this.indexstatic = ranstaic;
                 var ran = Math.floor(Math.random() * 4);
                 if (this.substate == 1) {
@@ -563,7 +557,6 @@ var PlaygamePage = /** @class */ (function () {
                     }
                 }
                 this.staticquestion[ranstaic].count--;
-                console.log("this.staticquestion[ranstaic].count--: " + this.staticquestion[ranstaic].count);
                 this.storage.set('staticTable', this.staticquestion);
                 // }
                 // }else{
@@ -889,7 +882,6 @@ var PlaygamePage = /** @class */ (function () {
             cssClass: "toasttime"
         });
         toast.onDidDismiss(function () {
-            console.log('Dismissed toast');
             if (_this.life == 0) {
                 setTimeout(function () {
                     _this.timer.runTimer = false;
@@ -1018,14 +1010,10 @@ var PlaygamePage = /** @class */ (function () {
         // if(staticTable != null){//have data
         // this.static = staticTable; 
         this.staticForSave.push({ vocabID: question.stem.vocabID });
-        console.log("GGGGGGG");
-        console.log("question.stem.vocabID = " + question.stem.vocabID);
         var checkstatic = false;
         for (var i = 0; i < this.staticquestion.length; i++) {
             if (question.stem.vocabID == this.staticquestion[i].stem.vocabID) {
-                console.log("this.staticquestion[i].count" + this.staticquestion[i].count);
                 this.staticquestion[i].count = this.staticquestion[i].count + 1;
-                console.log("this.staticquestion[i].count = this.staticquestion[i].count++;" + this.staticquestion[i].count);
                 checkstatic = true;
             }
         }
@@ -1071,44 +1059,6 @@ var PlaygamePage = /** @class */ (function () {
         else {
             this.storage.set('staticTable', this.staticquestion);
         }
-        //   }
-        // else{//new
-        // let datas = [];
-        // datas.push({
-        //     choices: [{
-        //             vocabID: question[this.indexques].choices[0].vocabID,
-        //             hiragana: question[this.indexques].choices[0].hiragana,
-        //             romanji: question[this.indexques].choices[0].romanji,
-        //             thai: question[this.indexques].choices[0].thai
-        //         },{
-        //             vocabID: question[this.indexques].choices[1].vocabID,
-        //             hiragana: question[this.indexques].choices[1].hiragana,
-        //             romanji: question[this.indexques].choices[1].romanji,
-        //             thai: question[this.indexques].choices[1].thai
-        //         },{
-        //             vocabID:  question[this.indexques].choices[2].vocabID,
-        //             hiragana: question[this.indexques].choices[2].hiragana,
-        //             romanji: question[this.indexques].choices[2].romanji,
-        //             thai: question[this.indexques].choices[2].thai
-        //         },{
-        //             vocabID: question[this.indexques].choices[3].vocabID,
-        //             hiragana: question[this.indexques].choices[3].hiragana,
-        //             romanji: question[this.indexques].choices[3].romanji,
-        //             thai: question[this.indexques].choices[3].thai
-        //         }],
-        //         stem: {
-        //             vocabID: question[this.indexques].stem.vocabID,
-        //             hiragana: question[this.indexques].stem.hiragana,
-        //             romanji: question[this.indexques].stem.romanji,
-        //             thai: question[this.indexques].stem.thai
-        //         },
-        //         UserID:this.idCode,
-        //     count: 1             
-        // });
-        // this.storage.set('staticTable', datas);
-        // }
-        // });
-        console.log(this.static);
     };
     PlaygamePage.prototype.addtime = function () {
         var _this = this;
@@ -1203,8 +1153,6 @@ var PlaygamePage = /** @class */ (function () {
                 while (this.cutran2 == this.key) {
                     this.cutran2 = Math.floor(Math.random() * 4);
                 }
-                console.log(this.cutran1);
-                console.log(this.cutran2);
             }
             this.choicecolor[this.cutran1] = "choicecut";
             this.choicepic[this.cutran1] = "assets/imgs/question/grayC.png";
@@ -1285,7 +1233,7 @@ var PlaygamePage = /** @class */ (function () {
     ], PlaygamePage.prototype, "timeInSeconds", void 0);
     PlaygamePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-playgame',template:/*ion-inline-start:"D:\yui\workspace\Jap_Android\src\pages\playgame\playgame.html"*/'<ion-content>\n\n  <ion-grid class="nopadding fixheight">\n\n\n\n    <ion-row>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n      <ion-col col-12 col-xl-6>\n\n        <div *ngIf="tryQ;else ready">\n\n          <ion-grid class="gray">\n\n            <ion-row>\n\n              <ion-col col-6>\n\n                <ion-icon ios="ios-alarm" md="md-alarm" class="head1"></ion-icon>\n\n              </ion-col>\n\n              <ion-col col-6>\n\n                <div class="head11"> {{timer.displayTime}} </div>\n\n              </ion-col>\n\n            </ion-row>\n\n            <ion-row>\n\n              <ion-col>\n\n                <div class="head2">score {{score}}</div>\n\n              </ion-col>\n\n              <ion-row>\n\n                <ion-col>\n\n                  <ion-icon class="head12" (click)="openModalCorrect()" name="heart"></ion-icon>\n\n                </ion-col>\n\n                <ion-col>\n\n                  <div class="head22">&nbsp;{{life}}</div>\n\n                </ion-col>\n\n              </ion-row>\n\n            </ion-row>\n\n          </ion-grid>\n\n\n\n          <ion-row>\n\n            <ion-col col-11 class="nopadding">\n\n              <ion-row class="nopadding">\n\n                <ion-col col-11 class="nopadding firstques">\n\n                  <img class="quespic" src="{{quesqic}}">\n\n                  <ion-label class="questionQ">Q.{{indexquessub+1}}/20</ion-label>\n\n                  <ion-label class="question">{{questionQ}} </ion-label>\n\n                </ion-col>\n\n              </ion-row>\n\n              <ion-row class="between firstch">\n\n                <ion-col col-1></ion-col>\n\n                <ion-col col-2>\n\n                  <img class="chiocepic" (click)="calulatate(0)" src="{{choicepic[0]}}">\n\n                </ion-col>\n\n                <ion-col col-8 class="{{choicecolor[0]}}" (click)="calulatate(0)">&nbsp;&nbsp;{{choice1}}</ion-col>\n\n\n\n              </ion-row>\n\n              <ion-row class="between">\n\n                <ion-col col-1></ion-col>\n\n                <ion-col col-2>\n\n                  <img class="chiocepic" (click)="calulatate(1)" src="{{choicepic[1]}}">\n\n                </ion-col>\n\n                <ion-col col-9 class="{{choicecolor[1]}}" (click)="calulatate(1)">&nbsp;&nbsp;{{choice2}}</ion-col>\n\n\n\n\n\n              </ion-row>\n\n\n\n\n\n              <ion-row class="between">\n\n                <ion-col col-1></ion-col>\n\n                <ion-col col-2>\n\n                  <img class="chiocepic" (click)="calulatate(2)" src="{{choicepic[2]}}">\n\n                </ion-col>\n\n                <ion-col col-9 class="{{choicecolor[2]}}" (click)="calulatate(2)">&nbsp;&nbsp;{{choice3}}</ion-col>\n\n\n\n\n\n              </ion-row>\n\n              <ion-row class="between">\n\n                <ion-col col-1></ion-col>\n\n                <ion-col col-2>\n\n                  <img class="chiocepic" (click)="calulatate(3)" src="{{choicepic[3]}}">\n\n                </ion-col>\n\n                <ion-col col-9 class="{{choicecolor[3]}}" (click)="calulatate(3)">&nbsp;&nbsp;{{choice4}}</ion-col>\n\n              </ion-row>\n\n\n\n              <ion-row class="firstitem">\n\n                <ion-col col-4>\n\n                  <ion-row>\n\n                    <ion-col col-12>\n\n                      <div class="numitemcut">{{numitemcut}}</div>\n\n                      <img class="itemI" (click)="cutchoice()" src="assets/imgs/5050.PNG">\n\n                    </ion-col>\n\n                  </ion-row>\n\n                </ion-col>\n\n                <ion-col col-4>\n\n                  <ion-row>\n\n                    <ion-col col-12>\n\n                      <div class="numitemcut">{{numitemskip}}</div>\n\n                      <img class="itemI" (click)="skipQ()" src="assets/imgs/skip.PNG">\n\n                    </ion-col>\n\n                  </ion-row>\n\n                </ion-col>\n\n                <ion-col col-4>\n\n                  <ion-row>\n\n                    <ion-col col-12>\n\n                      <div class="numitemcut">{{numitemtime}}</div>\n\n                      <img class="itemI" (click)="addtime()" src="assets/imgs/addtime.PNG">\n\n                    </ion-col>\n\n                  </ion-row>\n\n                </ion-col>\n\n              </ion-row>\n\n\n\n\n\n            </ion-col>\n\n\n\n            <ion-col col-1 class="nopadding">\n\n              <ion-row class="pink {{manageTab[0]}}">\n\n              </ion-row>\n\n              <ion-row class="orange {{manageTab[1]}}">\n\n              </ion-row>\n\n              <ion-row class="yellow {{manageTab[2]}}">\n\n              </ion-row>\n\n              <ion-row class="green {{manageTab[3]}}">\n\n              </ion-row>\n\n              <ion-row class="darkgreen {{manageTab[4]}}">\n\n              </ion-row>\n\n              <ion-row class="blue {{manageTab[5]}}">\n\n              </ion-row>\n\n              <ion-row class="darkblue {{manageTab[6]}}">\n\n              </ion-row>\n\n              <ion-row class="violet {{manageTab[7]}}">\n\n              </ion-row>\n\n            </ion-col>\n\n          </ion-row>\n\n        </div>\n\n\n\n        <ng-template #ready>\n\n          <div class="fixheight">\n\n            <ion-row class="loadtop">\n\n              <ion-col col-12>\n\n              </ion-col>\n\n            </ion-row>\n\n            <p class="textload">Stage {{state}}-{{substate}}</p>\n\n            <ion-row>\n\n              <ion-col col-12 class="nopadding">\n\n                <img class="loadbub" src="assets/imgs/loading/giphy.gif">\n\n              </ion-col>\n\n            </ion-row>\n\n            <p class="textload">loading...</p>\n\n            <ion-row class="loadtop">\n\n              <ion-col col-12>\n\n              </ion-col>\n\n            </ion-row>\n\n          </div>\n\n        </ng-template>\n\n\n\n\n\n      </ion-col>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\yui\workspace\Jap_Android\src\pages\playgame\playgame.html"*/,
+            selector: 'page-playgame',template:/*ion-inline-start:"D:\yui\workspace\JapanGame\JapanGame\src\pages\playgame\playgame.html"*/'<ion-content>\n\n  <ion-grid class="nopadding fixheight">\n\n\n\n    <ion-row>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n      <ion-col col-12 col-xl-6>\n\n        <div *ngIf="tryQ;else ready">\n\n          <ion-grid class="gray">\n\n            <ion-row>\n\n              <ion-col col-6>\n\n                <ion-icon ios="ios-alarm" md="md-alarm" class="head1"></ion-icon>\n\n              </ion-col>\n\n              <ion-col col-6>\n\n                <div class="head11"> {{timer.displayTime}} </div>\n\n              </ion-col>\n\n            </ion-row>\n\n            <ion-row>\n\n              <ion-col>\n\n                <div class="head2">score {{score}}</div>\n\n              </ion-col>\n\n              <ion-row>\n\n                <ion-col>\n\n                  <ion-icon class="head12" (click)="openModalCorrect()" name="heart"></ion-icon>\n\n                </ion-col>\n\n                <ion-col>\n\n                  <div class="head22">&nbsp;{{life}}</div>\n\n                </ion-col>\n\n              </ion-row>\n\n            </ion-row>\n\n          </ion-grid>\n\n\n\n          <ion-row>\n\n            <ion-col col-11 class="nopadding">\n\n              <ion-row class="nopadding">\n\n                <ion-col col-11 class="nopadding firstques">\n\n                  <img class="quespic" src="{{quesqic}}">\n\n                  <ion-label class="questionQ">Q.{{indexquessub+1}}/20</ion-label>\n\n                  <ion-label class="question">{{questionQ}} </ion-label>\n\n                </ion-col>\n\n              </ion-row>\n\n              <ion-row class="between firstch">\n\n                <ion-col col-1></ion-col>\n\n                <ion-col col-2>\n\n                  <img class="chiocepic" (click)="calulatate(0)" src="{{choicepic[0]}}">\n\n                </ion-col>\n\n                <ion-col col-8 class="{{choicecolor[0]}}" (click)="calulatate(0)">&nbsp;&nbsp;{{choice1}}</ion-col>\n\n\n\n              </ion-row>\n\n              <ion-row class="between">\n\n                <ion-col col-1></ion-col>\n\n                <ion-col col-2>\n\n                  <img class="chiocepic" (click)="calulatate(1)" src="{{choicepic[1]}}">\n\n                </ion-col>\n\n                <ion-col col-9 class="{{choicecolor[1]}}" (click)="calulatate(1)">&nbsp;&nbsp;{{choice2}}</ion-col>\n\n\n\n\n\n              </ion-row>\n\n\n\n\n\n              <ion-row class="between">\n\n                <ion-col col-1></ion-col>\n\n                <ion-col col-2>\n\n                  <img class="chiocepic" (click)="calulatate(2)" src="{{choicepic[2]}}">\n\n                </ion-col>\n\n                <ion-col col-9 class="{{choicecolor[2]}}" (click)="calulatate(2)">&nbsp;&nbsp;{{choice3}}</ion-col>\n\n\n\n\n\n              </ion-row>\n\n              <ion-row class="between">\n\n                <ion-col col-1></ion-col>\n\n                <ion-col col-2>\n\n                  <img class="chiocepic" (click)="calulatate(3)" src="{{choicepic[3]}}">\n\n                </ion-col>\n\n                <ion-col col-9 class="{{choicecolor[3]}}" (click)="calulatate(3)">&nbsp;&nbsp;{{choice4}}</ion-col>\n\n              </ion-row>\n\n\n\n              <ion-row class="firstitem">\n\n                <ion-col col-4>\n\n                  <ion-row>\n\n                    <ion-col col-12>\n\n                      <div class="numitemcut">{{numitemcut}}</div>\n\n                      <img class="itemI" (click)="cutchoice()" src="assets/imgs/5050.PNG">\n\n                    </ion-col>\n\n                  </ion-row>\n\n                </ion-col>\n\n                <ion-col col-4>\n\n                  <ion-row>\n\n                    <ion-col col-12>\n\n                      <div class="numitemcut">{{numitemskip}}</div>\n\n                      <img class="itemI" (click)="skipQ()" src="assets/imgs/skip.PNG">\n\n                    </ion-col>\n\n                  </ion-row>\n\n                </ion-col>\n\n                <ion-col col-4>\n\n                  <ion-row>\n\n                    <ion-col col-12>\n\n                      <div class="numitemcut">{{numitemtime}}</div>\n\n                      <img class="itemI" (click)="addtime()" src="assets/imgs/addtime.PNG">\n\n                    </ion-col>\n\n                  </ion-row>\n\n                </ion-col>\n\n              </ion-row>\n\n\n\n\n\n            </ion-col>\n\n\n\n            <ion-col col-1 class="nopadding">\n\n              <ion-row class="pink {{manageTab[0]}}">\n\n              </ion-row>\n\n              <ion-row class="orange {{manageTab[1]}}">\n\n              </ion-row>\n\n              <ion-row class="yellow {{manageTab[2]}}">\n\n              </ion-row>\n\n              <ion-row class="green {{manageTab[3]}}">\n\n              </ion-row>\n\n              <ion-row class="darkgreen {{manageTab[4]}}">\n\n              </ion-row>\n\n              <ion-row class="blue {{manageTab[5]}}">\n\n              </ion-row>\n\n              <ion-row class="darkblue {{manageTab[6]}}">\n\n              </ion-row>\n\n              <ion-row class="violet {{manageTab[7]}}">\n\n              </ion-row>\n\n            </ion-col>\n\n          </ion-row>\n\n        </div>\n\n\n\n        <ng-template #ready>\n\n          <div class="fixheight">\n\n            <ion-row class="loadtop">\n\n              <ion-col col-12>\n\n              </ion-col>\n\n            </ion-row>\n\n            <p class="textload">Stage {{state}}-{{substate}}</p>\n\n            <ion-row>\n\n              <ion-col col-12 class="nopadding">\n\n                <img class="loadbub" src="assets/imgs/loading/giphy.gif">\n\n              </ion-col>\n\n            </ion-row>\n\n            <p class="textload">loading...</p>\n\n            <ion-row class="loadtop">\n\n              <ion-col col-12>\n\n              </ion-col>\n\n            </ion-row>\n\n          </div>\n\n        </ng-template>\n\n\n\n\n\n      </ion-col>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\yui\workspace\JapanGame\JapanGame\src\pages\playgame\playgame.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
