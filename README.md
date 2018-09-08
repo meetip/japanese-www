@@ -1,1 +1,1 @@
-# japanese-www
+# japanese-www game
