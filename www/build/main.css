@@ -1,3 +1,11 @@
+.grid {
+  padding: 0px;
+}
+
+.grid .col {
+  padding: 0px;
+}
+
 .ion-ios-add:before {
   content: "\f102";
 }
@@ -25692,6 +25700,7 @@ ion-navbar.toolbar {
 }
 
 .textchapter {
+  text-align: center;
   font-size: 3vh;
   padding: 1vh;
   margin: 1%;

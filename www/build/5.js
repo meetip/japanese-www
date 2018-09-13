@@ -1,6 +1,6 @@
 webpackJsonp([5],{
 
-/***/ 298:
+/***/ 296:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LostPageModule", function() { return LostPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lost__ = __webpack_require__(311);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lost__ = __webpack_require__(309);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var LostPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 311:
+/***/ 309:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -91,7 +91,7 @@ var LostPage = /** @class */ (function () {
     };
     LostPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-lost',template:/*ion-inline-start:"D:\yui\workspace\JapanGame\JapanGame\src\pages\lost\lost.html"*/'<ion-content class="gray">\n\n\n\n  <ion-grid class="fixheight">\n\n    <ion-row>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n      <ion-col col-12 col-xl-6>\n\n        <img class="piccorrect" src="assets/imgs/gameover.PNG">\n\n        <p class="textcorrect">LOST</p>\n\n        <button ion-button class="buttonpopup" (click)="openMap()">\n\n          OK\n\n        </button>\n\n      </ion-col>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\yui\workspace\JapanGame\JapanGame\src\pages\lost\lost.html"*/,
+            selector: 'page-lost',template:/*ion-inline-start:"D:\yui\workspace\JapanGame\JapanGame\src\pages\lost\lost.html"*/'<ion-content class="gray">\n\n\n\n  <ion-grid class="fixheight nopadding gray">\n\n    <ion-row>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n      <ion-col  col-12 col-xl-6>\n\n        <img class="piccorrect" src="assets/imgs/gameover.PNG">\n\n        <p class="textcorrect">LOST</p>\n\n        <button ion-button class="buttonpopup" (click)="openMap()">\n\n          OK\n\n        </button>\n\n        <p>\n\n\n\n\n\n        </p>\n\n      </ion-col>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\yui\workspace\JapanGame\JapanGame\src\pages\lost\lost.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__providers_call_api_call_api__["a" /* CallApiProvider */]])
     ], LostPage);

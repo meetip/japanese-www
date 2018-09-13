@@ -1,6 +1,6 @@
 webpackJsonp([3],{
 
-/***/ 300:
+/***/ 298:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuPageModule", function() { return MenuPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__menu__ = __webpack_require__(313);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__menu__ = __webpack_require__(311);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var MenuPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 313:
+/***/ 311:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -244,7 +244,7 @@ var MenuPage = /** @class */ (function () {
     };
     MenuPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-menu',template:/*ion-inline-start:"D:\yui\workspace\JapanGame\JapanGame\src\pages\menu\menu.html"*/'<ion-content>\n\n  <ion-grid class="nopadding fixheight" *ngIf="readymenu;else ready">\n\n    <ion-row>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n      <ion-col col-12 col-xl-6>\n\n        <ion-row class="gray borderbottom">\n\n          <ion-col col-9 *ngIf="typemenu;else quest">\n\n            <div class="namemenu">Name : {{fullname}}</div>\n\n            <div class="namemenu">Stage : {{statetext}}</div>\n\n          </ion-col>\n\n          <ng-template #quest>\n\n            <ion-col col-9>\n\n              <div class="namemenu">Name : {{name}}</div>\n\n              <div class="namemenu">Stage : {{statetext}}</div>\n\n            </ion-col>\n\n          </ng-template>\n\n          <ion-col col-3>\n\n            <img class="iconperson" src="assets/imgs/profilestudent.png" (click)="openprofile()">\n\n          </ion-col>\n\n          <div class="head11"></div>\n\n\n\n        </ion-row>\n\n        <ion-row class="borderbottom">\n\n          <ion-col col-9 class="blue borderright">\n\n            <div class="textmenu" (click)="openMap()">Play</div>\n\n          </ion-col>\n\n          <ion-col col-3 class="yellow"></ion-col>\n\n        </ion-row>\n\n        <ion-row class="borderbottom">\n\n          <ion-col col-3 class="green borderright"></ion-col>\n\n          <ion-col col-9 class="pink">\n\n            <div class="textmenu" (click)="openLesson()">Vocabulary Bank</div>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row class="borderbottom ">\n\n          <ion-col col-9 class="violet borderright">\n\n            <div class="textmenu" (click)="openCre()">Credit</div>\n\n          </ion-col>\n\n          <ion-col col-3 class="yellow"></ion-col>\n\n        </ion-row>\n\n        <ion-row class="borderbottom">\n\n          <ion-col col-3 class="green borderright"></ion-col>\n\n          <ion-col col-9 class="orange">\n\n            <div class="textmenu" (click)="exitApp()">Exit</div>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n\n\n\n\n  <ng-template #ready>\n\n    <img class="readyload" src="assets/imgs/loading/lg.palette-rotating-ring-loader.gif">\n\n  </ng-template>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\yui\workspace\JapanGame\JapanGame\src\pages\menu\menu.html"*/,
+            selector: 'page-menu',template:/*ion-inline-start:"D:\yui\workspace\JapanGame\JapanGame\src\pages\menu\menu.html"*/'<ion-content>\n\n  <ion-grid class="nopadding fixheight" *ngIf="readymenu;else ready">\n\n    <ion-row>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n      <ion-col col-12 col-xl-6>\n\n        <ion-row class="gray borderbottom">\n\n          <ion-col col-9 *ngIf="typemenu;else quest">\n\n            <div class="namemenu">Name : {{fullname}}</div>\n\n            <div class="namemenu">Stage : {{statetext}}</div>\n\n          </ion-col>\n\n          <ng-template #quest>\n\n            <ion-col col-9>\n\n              <div class="namemenu">Name : {{name}}</div>\n\n              <div class="namemenu">Stage : {{statetext}}</div>\n\n            </ion-col>\n\n          </ng-template>\n\n          <ion-col col-3>\n\n            <img class="iconperson" src="assets/imgs/profilestudent.png" (click)="openprofile()">\n\n          </ion-col>\n\n          <div class="head11"></div>\n\n\n\n        </ion-row>\n\n        <ion-row class="borderbottom">\n\n          <ion-col col-9 class="blue borderright">\n\n            <div class="textmenu" (click)="openMap()">Play</div>\n\n          </ion-col>\n\n          <ion-col col-3 class="yellow"></ion-col>\n\n        </ion-row>\n\n        <ion-row class="borderbottom">\n\n          <ion-col col-3 class="green borderright"></ion-col>\n\n          <ion-col col-9 class="pink">\n\n            <div class="textmenu" (click)="openLesson()">Vocabulary Bank</div>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row class="borderbottom ">\n\n          <ion-col col-9 class="violet borderright">\n\n            <div class="textmenu" (click)="openCre()">Credit</div>\n\n          </ion-col>\n\n          <ion-col col-3 class="yellow"></ion-col>\n\n        </ion-row>\n\n        <ion-row class="borderbottom">\n\n          <ion-col col-3 class="green borderright"></ion-col>\n\n          <ion-col col-9 class="orange">\n\n            <div class="textmenu" (click)="exitApp()">Exit</div>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-col>\n\n   <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n\n\n\n\n  <ng-template #ready>\n\n    <img class="readyload" src="assets/imgs/loading/lg.palette-rotating-ring-loader.gif">\n\n  </ng-template>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\yui\workspace\JapanGame\JapanGame\src\pages\menu\menu.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],

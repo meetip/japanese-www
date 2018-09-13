@@ -242,7 +242,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"D:\yui\workspace\JapanGame\JapanGame\src\pages\home\home.html"*/'<ion-content>\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-lg-1 col-xl-3>\n\n\n\n      </ion-col>\n\n      <ion-col col-12 col-lg-10 col-xl-6>\n\n      <div class="fixheight">\n\n        <img class="logoone" src="assets/imgs/logomake.png">\n\n        <div class="title">Japanese-Thai\n\n          <br /> Vocabulary\n\n          <br /> Matching\n\n          <br /> Game </div>\n\n        <div class="homeB" (click)="openMenu()">Touch to Start</div>\n\n        <div class="or"> or </div>\n\n        <img class="homelogoCMU" src="assets/imgs/chiangmai-university-logo-english-w.png">\n\n        <div class="homeB2" (click)="openlogin()">Login with CMU mail</div>\n\n        <img class="onepic" src="assets/imgs/homepic.jpg">\n\n        <img class="twopic" src="assets/imgs/0557d23fcc27c3b.jpg">\n\n        <img class="logotwo" src="assets/imgs/logow.jpg">\n\n        </div>\n\n      </ion-col>\n\n\n\n      <ion-col col-lg-1 col-xl-3>\n\n\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\yui\workspace\JapanGame\JapanGame\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"D:\yui\workspace\JapanGame\JapanGame\src\pages\home\home.html"*/'<ion-content>\n\n  <ion-grid no-padding >\n\n    <ion-row>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n      <ion-col col-12  col-xl-6>\n\n      <div class="fixheight">\n\n        <img class="logoone" src="assets/imgs/logomake.png">\n\n        <div class="title">Japanese-Thai\n\n          <br /> Vocabulary\n\n          <br /> Matching\n\n          <br /> Game </div>\n\n        <div class="homeB" (click)="openMenu()">Touch to Start</div>\n\n        <div class="or"> or </div>\n\n        <img class="homelogoCMU" src="assets/imgs/chiangmai-university-logo-english-w.png">\n\n        <div class="homeB2" (click)="openlogin()">Login with CMU mail</div>\n\n        <img class="onepic" src="assets/imgs/homepic.jpg">\n\n        <img class="twopic" src="assets/imgs/0557d23fcc27c3b.jpg">\n\n        <img class="logotwo" src="assets/imgs/logow.jpg">\n\n        </div>\n\n      </ion-col>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\yui\workspace\JapanGame\JapanGame\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
@@ -281,58 +281,58 @@ var map = {
 		12
 	],
 	"../pages/chaptersub/chaptersub.module": [
-		291,
+		292,
 		11
 	],
 	"../pages/credit/credit.module": [
-		292,
+		291,
 		10
 	],
 	"../pages/dictionary/dictionary.module": [
-		293,
+		294,
 		9
 	],
 	"../pages/endone/endone.module": [
-		294,
+		295,
 		13
 	],
 	"../pages/endsubone/endsubone.module": [
-		295,
+		293,
 		8
 	],
 	"../pages/lesson/lesson.module": [
-		296,
+		302,
 		7
 	],
 	"../pages/login-guest/login-guest.module": [
-		297,
+		303,
 		6
 	],
 	"../pages/login/login.module": [
 		163
 	],
 	"../pages/lost/lost.module": [
-		298,
+		296,
 		5
 	],
 	"../pages/map/map.module": [
-		299,
+		297,
 		4
 	],
 	"../pages/menu/menu.module": [
-		300,
+		298,
 		3
 	],
 	"../pages/playgame/playgame.module": [
-		302,
+		300,
 		2
 	],
 	"../pages/profile/profile.module": [
-		301,
+		299,
 		1
 	],
 	"../pages/vocab/vocab.module": [
-		303,
+		301,
 		0
 	]
 };
@@ -725,20 +725,20 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/chapter/chapter.module#ChapterPageModule', name: 'ChapterPage', segment: 'chapter', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/chaptersub/chaptersub.module#ChaptersubPageModule', name: 'ChaptersubPage', segment: 'chaptersub', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/credit/credit.module#CreditPageModule', name: 'CreditPage', segment: 'credit', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/chaptersub/chaptersub.module#ChaptersubPageModule', name: 'ChaptersubPage', segment: 'chaptersub', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/endsubone/endsubone.module#EndsubonePageModule', name: 'EndsubonePage', segment: 'endsubone', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/dictionary/dictionary.module#DictionaryPageModule', name: 'DictionaryPage', segment: 'dictionary', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/endone/endone.module#EndonePageModule', name: 'EndonePage', segment: 'endone', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/endsubone/endsubone.module#EndsubonePageModule', name: 'EndsubonePage', segment: 'endsubone', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/lesson/lesson.module#LessonPageModule', name: 'LessonPage', segment: 'lesson', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login-guest/login-guest.module#LoginGuestPageModule', name: 'LoginGuestPage', segment: 'login-guest', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/lost/lost.module#LostPageModule', name: 'LostPage', segment: 'lost', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/map/map.module#MapPageModule', name: 'MapPage', segment: 'map', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/menu/menu.module#MenuPageModule', name: 'MenuPage', segment: 'menu', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/playgame/playgame.module#PlaygamePageModule', name: 'PlaygamePage', segment: 'playgame', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/vocab/vocab.module#VocabPageModule', name: 'VocabPage', segment: 'vocab', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/vocab/vocab.module#VocabPageModule', name: 'VocabPage', segment: 'vocab', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/lesson/lesson.module#LessonPageModule', name: 'LessonPage', segment: 'lesson', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login-guest/login-guest.module#LoginGuestPageModule', name: 'LoginGuestPage', segment: 'login-guest', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["a" /* IonicStorageModule */].forRoot()
