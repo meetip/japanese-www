@@ -26412,6 +26412,7 @@ ion-modal .modal-wrapper {
   text-align: center;
   font-weight: bold;
   padding: 7.7vh;
+  height: 20%;
 }
 
 .borderbottom {
@@ -26426,6 +26427,7 @@ ion-modal .modal-wrapper {
   font-size: 2vh;
   margin: 3vh;
   font-weight: bold;
+  height: 20%;
 }
 
 .bghidden {

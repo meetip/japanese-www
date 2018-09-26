@@ -1,6 +1,6 @@
 webpackJsonp([1],{
 
-/***/ 299:
+/***/ 301:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfilePageModule", function() { return ProfilePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile__ = __webpack_require__(312);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile__ = __webpack_require__(314);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,14 +38,15 @@ var ProfilePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 312:
+/***/ 314:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfilePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_call_api_call_api__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(33);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -58,6 +59,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the ProfilePage page.
  *
@@ -65,10 +67,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var ProfilePage = /** @class */ (function () {
-    function ProfilePage(navCtrl, storage, navParams) {
+    function ProfilePage(navCtrl, storage, navParams, CallApiProvider) {
         this.navCtrl = navCtrl;
         this.storage = storage;
         this.navParams = navParams;
+        this.CallApiProvider = CallApiProvider;
         this.readypro = false;
         this.scoreTable = [];
         this.totalscore = 0;
@@ -209,33 +212,61 @@ var ProfilePage = /** @class */ (function () {
         this.storage.get('id').then(function (id) {
             _this.id = id;
         });
-        this.storage.get('fullname').then(function (fullname) {
-            _this.fullname = fullname;
-        });
         this.storage.get('firstname').then(function (firstname) {
             _this.firstname = firstname;
         });
         this.storage.get('lastname').then(function (lastname) {
             _this.lastname = lastname;
         });
-        this.storage.get('scoreTable').then(function (scoreTable) {
-            for (var i = 0; i < scoreTable.length; i++) {
-                if (scoreTable[i].id == idCode) {
-                    if (scoreTable[i].score != 0) {
-                        _this.scoreTable.push({
-                            stage: scoreTable[i].stage,
-                            substage: scoreTable[i].substage,
-                            score: scoreTable[i].score
-                        });
-                        _this.totalscore = _this.totalscore + scoreTable[i].score;
+        this.storage.get('fullname').then(function (fullname) {
+            _this.fullname = fullname;
+            _this.storage.get('id').then(function (id) {
+                var callback = function (result) {
+                    if (result != null) {
+                        _this.setLastStage(result[0].last_stage);
+                        for (var i = 0; i < 8; i++) {
+                            for (var j = 0; j < 3; j++) {
+                                _this.totalscore = _this.totalscore + result[0]['Stage' + (i + 1).toString()][j];
+                                _this.scoreTable.push({
+                                    stage: i + 1,
+                                    substage: j + 1,
+                                    score: result[0]['Stage' + (i + 1).toString()][j]
+                                });
+                            }
+                        }
+                        _this.readypro = true;
                     }
-                }
-            }
+                };
+                _this.CallApiProvider.LastStage(callback, idCode, _this.fullname);
+            });
         });
-        this.readypro = true;
+        // this.storage.get('scoreTable').then((scoreTable)=> {      
+        //    for(let i = 0; i < scoreTable.length;i++){
+        //     if(scoreTable[i].id == idCode){
+        //         if(scoreTable[i].score != 0){
+        //           this.scoreTable.push({
+        //             stage : scoreTable[i].stage,
+        //             substage : scoreTable[i].substage,
+        //             score : scoreTable[i].score            
+        //           });
+        //         this.totalscore = this.totalscore + scoreTable[i].score ;
+        //       }
+        //     }
+        //   }
+        // });
     };
     ProfilePage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad ProfilePage');
+    };
+    ProfilePage.prototype.checkLastStage = function (stage, substage) {
+        if (stage <= this.statenum) {
+            if (substage <= this.substate) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
     };
     ProfilePage.prototype.openMenu = function () {
         this.navCtrl.pop();
@@ -276,12 +307,13 @@ var ProfilePage = /** @class */ (function () {
         this.storage.remove('lastname');
     };
     ProfilePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-profile',template:/*ion-inline-start:"D:\yui\workspace\JapanGame\JapanGame\src\pages\profile\profile.html"*/'<ion-content>\n\n<ion-grid class="nopadding fixheight">\n\n    <ion-row>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n  <ion-col col-12 col-xl-6>\n\n  <div *ngIf = "readypro;else ready">\n\n    <ion-row class="gray">\n\n      <ion-col>\n\n        <img class="returnlesson" (click) = "openMenu()" src="assets/imgs/return.PNG">\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-grid class="violet">\n\n      <h1 class="profile">PROFILE</h1>\n\n      <div class="datafile" *ngIf = "type;else quest">Firstname&emsp;&nbsp;&nbsp;: {{firstname}}  <br/>\n\n      Lastname&emsp;&nbsp;&nbsp;: {{lastname}}    <br/>\n\n      studentID&emsp;&nbsp;&nbsp;&nbsp;: {{id}}   <br/>\n\n      Stage clear&emsp;: {{statetext}}<br/>\n\n      Total Score&emsp;: {{totalscore}}</div>\n\n      <ng-template #quest>\n\n         <div class="datafile">Name&emsp;&nbsp;&emsp;&emsp;: {{name}}  <br/>\n\n      Stage clear&emsp;&nbsp;: {{statetext}}<br/>\n\n      Total Score&emsp;: {{totalscore}}</div>\n\n      </ng-template>\n\n    <div *ngIf = "!login" >\n\n      <button ion-button class="profileA" (click) = "loginCMU()">login with CMU Mail</button> \n\n    </div>\n\n      <button ion-button class="profileB" (click) = "logout()">logout</button>\n\n    </ion-grid>\n\n\n\n    <div class="textscorepro">SCORE</div>\n\n    <img class="propic" src="assets/imgs/question/violetques.png">\n\n\n\n    <ion-grid class="violet betweentable tablescore">\n\n      <ion-row>\n\n        <ion-col col-4>\n\n          Stage\n\n        </ion-col>\n\n        <ion-col col-4>\n\n          Score (20)\n\n        </ion-col>\n\n        <ion-col col-4>\n\n          PLAY\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n\n\n    <ion-grid class="tablescore">\n\n      <!-- <ion-row *ngFor="let score of score"> -->\n\n      <ion-row *ngFor = "let score of scoreTable">\n\n        <ion-col col-4>\n\n          {{score.stage}}-{{score.substage}}\n\n        </ion-col>\n\n        <ion-col col-4>\n\n          {{score.score}}\n\n        </ion-col>\n\n        <ion-col col-4>\n\n          <ion-icon class="iconplay" ios="ios-arrow-dropright" md="md-arrow-dropright" (click) = "openMap(score.stage,score.substage)"></ion-icon>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n  <ng-template #ready>\n\n    <img class="readyload" src="assets/imgs/loading/lg.palette-rotating-ring-loader.gif">\n\n</ng-template>\n\n      </ion-col>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\yui\workspace\JapanGame\JapanGame\src\pages\profile\profile.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+            selector: 'page-profile',template:/*ion-inline-start:"D:\yui\workspace\JapanGame\JapanGame\src\pages\profile\profile.html"*/'<ion-content>\n\n<ion-grid class="nopadding fixheight">\n\n    <ion-row>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n  <ion-col col-12 col-xl-6>\n\n  <div *ngIf = "readypro;else ready">\n\n    <ion-row class="gray">\n\n      <ion-col>\n\n        <img class="returnlesson" (click) = "openMenu()" src="assets/imgs/return.PNG">\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-grid class="violet">\n\n      <h1 class="profile">PROFILE</h1>\n\n      <div class="datafile" *ngIf = "type;else quest">Firstname&emsp;&nbsp;&nbsp;: {{firstname}}  <br/>\n\n      Lastname&emsp;&nbsp;&nbsp;: {{lastname}}    <br/>\n\n      studentID&emsp;&nbsp;&nbsp;&nbsp;: {{id}}   <br/>\n\n      Stage clear&emsp;: {{statetext}}<br/>\n\n      Total Score&emsp;: {{totalscore}}</div>\n\n      <ng-template #quest>\n\n         <div class="datafile">Name&emsp;&nbsp;&emsp;&emsp;: {{name}}  <br/>\n\n      Stage clear&emsp;&nbsp;: {{statetext}}<br/>\n\n      Total Score&emsp;: {{totalscore}}</div>\n\n      </ng-template>\n\n    <div *ngIf = "!login" >\n\n      <button ion-button class="profileA" (click) = "loginCMU()">login with CMU Mail</button> \n\n    </div>\n\n      <button ion-button class="profileB" (click) = "logout()">logout</button>\n\n    </ion-grid>\n\n\n\n    <div class="textscorepro">SCORE</div>\n\n    <img class="propic" src="assets/imgs/question/violetques.png">\n\n\n\n    <ion-grid class="violet betweentable tablescore">\n\n      <ion-row>\n\n        <ion-col col-4>\n\n          Stage\n\n        </ion-col>\n\n        <ion-col col-4>\n\n          Score (20)\n\n        </ion-col>\n\n        <ion-col col-4>\n\n          PLAY\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n\n\n    <ion-grid class="tablescore">\n\n      <!-- <ion-row *ngFor="let score of score"> -->\n\n      <div *ngFor = "let score of scoreTable">\n\n        <ion-row *ngIf="checkLastStage(score.stage,score.substage)">\n\n        <ion-col col-4>\n\n          {{score.stage}}-{{score.substage}}\n\n        </ion-col>\n\n        <ion-col col-4>\n\n          {{score.score}}\n\n        </ion-col>\n\n        <ion-col col-4>\n\n          <ion-icon class="iconplay" ios="ios-arrow-dropright" md="md-arrow-dropright" (click) = "openMap(score.stage,score.substage)"></ion-icon>\n\n        </ion-col>\n\n      </ion-row>\n\n      </div>\n\n    </ion-grid>\n\n  </div>\n\n  <ng-template #ready>\n\n    <img class="readyload" src="assets/imgs/loading/lg.palette-rotating-ring-loader.gif">\n\n</ng-template>\n\n      </ion-col>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\yui\workspace\JapanGame\JapanGame\src\pages\profile\profile.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_0__providers_call_api_call_api__["a" /* CallApiProvider */]])
     ], ProfilePage);
     return ProfilePage;
 }());

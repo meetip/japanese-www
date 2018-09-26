@@ -17,10 +17,10 @@ var OAUTH_LOGIN_URL = 'https://oauth.cmu.ac.th/v1/Authorize.aspx';
 var OAUTH_TOKEN_URL = 'https://oauth.cmu.ac.th/v1/GetToken.aspx';
 var OAUTH_CLIENT_ID = '9rqMCFuBdCAJJpK3pJbdse2qvuzTwBQRWj8Z02ej';
 var OAUTH_CLIENT_SECRET = 'kUYa77PQeKhqzXE4y9sjgMfNYWZzrWcxD23Ht2tx';
-var OAUTH_REDIRECT_URI = 'http://159.65.142.130';
+var OAUTH_REDIRECT_URI = 'https://www.ljcmu.com';
 var OAUTH_SCOPE = 'cmuitaccount.basicinfo';
 var CRYPTO_KEY = 'A5178B6A965AACF3CD60B07A15061719';
-var SERVER = 'http://159.65.142.130';
+var SERVER = 'https://www.ljcmu.com';
 function getOAuthAuthenUrl() {
     var backUrl = window.location.origin + '%2F%23%2Flogin';
     return OAUTH_LOGIN_URL + "?response_type=code&client_id=" + OAUTH_CLIENT_ID + "&redirect_uri=" + OAUTH_REDIRECT_URI + "&scope=" + OAUTH_SCOPE + "&state=" + backUrl;
@@ -33,7 +33,7 @@ function getOAuthAuthenUrlMobile() {
 
 /***/ }),
 
-/***/ 109:
+/***/ 107:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -42,11 +42,11 @@ function getOAuthAuthenUrlMobile() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_app_config__ = __webpack_require__(106);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(104);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -242,7 +242,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"D:\yui\workspace\JapanGame\JapanGame\src\pages\home\home.html"*/'<ion-content>\n\n  <ion-grid no-padding >\n\n    <ion-row>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n      <ion-col col-12  col-xl-6>\n\n      <div class="fixheight">\n\n        <img class="logoone" src="assets/imgs/logomake.png">\n\n        <div class="title">Japanese-Thai\n\n          <br /> Vocabulary\n\n          <br /> Matching\n\n          <br /> Game </div>\n\n        <div class="homeB" (click)="openMenu()">Touch to Start</div>\n\n        <div class="or"> or </div>\n\n        <img class="homelogoCMU" src="assets/imgs/chiangmai-university-logo-english-w.png">\n\n        <div class="homeB2" (click)="openlogin()">Login with CMU mail</div>\n\n        <img class="onepic" src="assets/imgs/homepic.jpg">\n\n        <img class="twopic" src="assets/imgs/0557d23fcc27c3b.jpg">\n\n        <img class="logotwo" src="assets/imgs/logow.jpg">\n\n        </div>\n\n      </ion-col>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\yui\workspace\JapanGame\JapanGame\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"D:\yui\workspace\JapanGame\JapanGame\src\pages\home\home.html"*/'<ion-content>\n\n  <ion-grid no-padding >\n\n    <ion-row>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n      <ion-col col-12  col-xl-6>\n\n      <div class="fixheight">\n\n        <img class="logoone" src="assets/imgs/logomake.png">\n\n        <div class="title">Japanese-Thai\n\n          <br /> Vocabulary\n\n          <br /> Matching\n\n          <br /> Game </div>\n\n        <div class="homeB" (click)="openMenu()">Touch to Start</div>\n\n        <div class="or"> or </div>\n\n        <img class="homelogoCMU" src="assets/imgs/chiangmai-university-logo-english-w.png">\n\n        <div class="homeB2" (click)="openlogin()">Login with CMU mail</div>\n\n        <img class="onepic" src="assets/imgs/homepic.jpg">\n\n        <img class="twopic" src="assets/imgs/0557d23fcc27c3b.jpg">\n\n        <img class="logotwo" src="assets/imgs/logow.jpg">\n\n		\n\n        </div>\n\n      </ion-col>\n\n      <ion-col col-xl-3 class="hidden-lg-down bghidden"> </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\yui\workspace\JapanGame\JapanGame\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
@@ -281,7 +281,7 @@ var map = {
 		12
 	],
 	"../pages/chaptersub/chaptersub.module": [
-		292,
+		293,
 		11
 	],
 	"../pages/credit/credit.module": [
@@ -289,38 +289,38 @@ var map = {
 		10
 	],
 	"../pages/dictionary/dictionary.module": [
-		294,
+		292,
 		9
 	],
 	"../pages/endone/endone.module": [
-		295,
+		294,
 		13
 	],
 	"../pages/endsubone/endsubone.module": [
-		293,
+		295,
 		8
 	],
 	"../pages/lesson/lesson.module": [
-		302,
+		296,
 		7
 	],
 	"../pages/login-guest/login-guest.module": [
-		303,
+		297,
 		6
 	],
 	"../pages/login/login.module": [
 		163
 	],
 	"../pages/lost/lost.module": [
-		296,
+		298,
 		5
 	],
 	"../pages/map/map.module": [
-		297,
+		299,
 		4
 	],
 	"../pages/menu/menu.module": [
-		298,
+		303,
 		3
 	],
 	"../pages/playgame/playgame.module": [
@@ -328,11 +328,11 @@ var map = {
 		2
 	],
 	"../pages/profile/profile.module": [
-		299,
+		301,
 		1
 	],
 	"../pages/vocab/vocab.module": [
-		301,
+		302,
 		0
 	]
 };
@@ -684,7 +684,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_common_http__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_in_app_browser__ = __webpack_require__(164);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_http__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_call_api_call_api__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_call_api_call_api__ = __webpack_require__(107);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -726,19 +726,19 @@ var AppModule = /** @class */ (function () {
                     links: [
                         { loadChildren: '../pages/chapter/chapter.module#ChapterPageModule', name: 'ChapterPage', segment: 'chapter', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/credit/credit.module#CreditPageModule', name: 'CreditPage', segment: 'credit', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/chaptersub/chaptersub.module#ChaptersubPageModule', name: 'ChaptersubPage', segment: 'chaptersub', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/endsubone/endsubone.module#EndsubonePageModule', name: 'EndsubonePage', segment: 'endsubone', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/dictionary/dictionary.module#DictionaryPageModule', name: 'DictionaryPage', segment: 'dictionary', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/chaptersub/chaptersub.module#ChaptersubPageModule', name: 'ChaptersubPage', segment: 'chaptersub', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/endone/endone.module#EndonePageModule', name: 'EndonePage', segment: 'endone', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/endsubone/endsubone.module#EndsubonePageModule', name: 'EndsubonePage', segment: 'endsubone', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/lesson/lesson.module#LessonPageModule', name: 'LessonPage', segment: 'lesson', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login-guest/login-guest.module#LoginGuestPageModule', name: 'LoginGuestPage', segment: 'login-guest', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/lost/lost.module#LostPageModule', name: 'LostPage', segment: 'lost', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/map/map.module#MapPageModule', name: 'MapPage', segment: 'map', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/menu/menu.module#MenuPageModule', name: 'MenuPage', segment: 'menu', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/playgame/playgame.module#PlaygamePageModule', name: 'PlaygamePage', segment: 'playgame', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/vocab/vocab.module#VocabPageModule', name: 'VocabPage', segment: 'vocab', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/lesson/lesson.module#LessonPageModule', name: 'LessonPage', segment: 'lesson', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login-guest/login-guest.module#LoginGuestPageModule', name: 'LoginGuestPage', segment: 'login-guest', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/menu/menu.module#MenuPageModule', name: 'MenuPage', segment: 'menu', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["a" /* IonicStorageModule */].forRoot()
@@ -770,16 +770,16 @@ var AppModule = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_call_api_call_api__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_call_api_call_api__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_toPromise__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_toPromise__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_toPromise__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_forms__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_in_app_browser__ = __webpack_require__(164);
